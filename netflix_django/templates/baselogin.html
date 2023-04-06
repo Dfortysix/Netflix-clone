@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-neutral-800">
+    <div class="grid grid-cols-11 gap-5 place-items-center border-b border-slate-800 bg-zinc-900 text-white text-xl">
+        <div class="col-span-2"><img class="m-5 h-1/2 w-1/2 "src="{% static 'assets/netflix.png' %}"></div>
+        <a href="{%url 'core:home'%}" class="">Home</a>
+        <a href="{%url 'movie:tvshows'%}" class="">TV Shows</a>
+        <a href="{%url 'movie:movielist'%}" class="">Movies</a>
+        <a href="{%url 'movie:latest'%}" class="">Latest</a>
+        <a href="{%url 'core:profiles'%}" class="">Users</a>
+
+        <div class="col-span-3 col-end-12 relative">
+            <form method="get" action="{% url 'movie:movielist' %}">
+                <input type="text" name="query" value="{{query}}" class="bg-stone-700 text-white text-l w-full py-2 px-6 border rounded-xl" placeholder="Find movie...">
+                <button class="absolute right-5 top-3">
+                <ion-icon  name="search-outline"></ion-icon>
+                </button>
+            </form>
+        </div>
+        
+
+
+    </div>
+
+    
+</body>
+
+{%block content%}
+
+{%endblock%}
+</html>

@@ -1,0 +1,31 @@
+{%extends "baselogin.html"%}
+
+{%block title%} {{item.name}} {%endblock%}
+
+{%block content%}
+    <div class="relative">
+      <img src="{{movie.image.url}}" alt="Image" class="w-full h-full object-cover">
+      <div class="absolute w-1/2 inset-0 bg-gray-800 opacity-75">
+        <div class="m-10">
+          <h1 class="mb-20 text-6xl font-bold text-white font-mono">{{movie.name}}</h1>
+          <p class="text-2xl text-white mb-5">{{movie.name}}</p>
+          <p class="text-2xl text-white mb-5 ">{{movie.when}} | {{movie.length}} | {{movie.kind}} </p>
+          <p class="text-l text-white mb-5">{{movie.description}}</p>
+          <p class="text-l text-white mb-5">Cast: {{movie.cast}}</p>
+        </div>
+
+        <div class="m-10 p-4 border bg-neutral-700 w-40 h-20 rounded-xl hover:bg-gray-500">
+            <a href="{% url 'movie:play-movie' movie_id=movie.uuid %}" class="flex items-center bg-red py-2 px-5 rounded-md">
+                <ion-icon name="play" class="text-2xl text-white"></ion-icon>
+                <span class="ml-3 font-medium text-white">
+                    Play
+                </span>
+            </a>      
+        </div>
+    </div>
+        
+      </div>
+    </div>
+
+{%endblock%}
+

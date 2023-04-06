@@ -1,0 +1,30 @@
+{% extends 'baselogin.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mt-10 mx-5">
+    <h3 class="text-2xl font-semibold text-white">Discover</h3>
+    <p class="text-l text-white">Explore all kinds of films that suite your taste.</p>
+</div>
+
+<div class="mt-10"> 
+    <div class="grid grid-cols-4 gap-4 gap-y-6">
+    {% for movie in movies %}
+    <div class="">
+        <a href="{% url 'movie:detail' movie.id %}" " >
+            <div class="flex items-center justify-center ">
+                <img src="{{movie.image.url}}" class="h-48 w-96 "> 
+            </div>
+
+            <div class="p-2 rounded-lg text-center text-white">
+                <h2 class="text-l">{{movie.name}}</h2>
+
+            </div>
+        </a>
+    </div>
+    {%endfor%}
+    </div>
+</div>
+
+</div>
+{% endblock content %}
